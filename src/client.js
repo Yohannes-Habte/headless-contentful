@@ -10,7 +10,7 @@ import { createClient } from "contentful";
    */
 
 export const client = createClient({
-  space: "se1putqoco90",
+  space: import.meta.env.VITE_SPACE_ID,
   environment: "master", // defaults to 'master' if not set
-  accessToken: "Ebcd5XqVRgvIGN-GyPv2sqBZziW2_UquS5-ishALx0w",
+  accessToken: import.meta.env.VITE_ACCESS_TOKEN,
 });
