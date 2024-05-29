@@ -9,8 +9,14 @@ import { createClient } from "contentful";
     6. Copy the code from Content Delivery API - access token and paste it next to accessToken below
    */
 
-export const client = createClient({
+export const clientProducts = createClient({
   space: import.meta.env.VITE_SPACE_ID,
-  environment: "master", // defaults to 'master' if not set
+  environment: "master",
   accessToken: import.meta.env.VITE_ACCESS_TOKEN,
+});
+
+export const clientAbout = createClient({
+  space: import.meta.env.VITE_ABOUT_SPACE_ID,
+  environment: "master",
+  accessToken: import.meta.env.VITE_ABOUT_ACCESS_TOKEN,
 });

@@ -1,16 +1,13 @@
 import { useEffect, useState } from "react";
-import { client } from "../../../client";
+import { clientProducts } from "../../../client";
 
 const Products = () => {
   const [foods, setFoods] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  console.log("foods =", foods);
 
   // Get all food products
   const getAllFoods = async (type = "food", limit = 10, skip = 0) => {
     try {
-      const data = await client.getEntries({
+      const data = await clientProducts.getEntries({
         content_type: type,
         limit: limit,
         skip: skip,
@@ -36,7 +33,7 @@ const Products = () => {
         foods.map((food) => {
           const {
             fields: {
-              title,
+              name,
               description,
               foodId,
               image: {
@@ -51,7 +48,7 @@ const Products = () => {
               <figure>
                 <img src={url} alt="" />
               </figure>
-              <h3> {title} </h3>
+              <h3> {name} </h3>
               <p> {description} </p>
             </article>
           );
